@@ -3,35 +3,17 @@ body {
   background: var(--bg-color);
 }
 
-.mobile {
-  padding: 8vw;
-  display: grid;
-  height: 100vh;
-  grid-template-areas:
-    "header"
-    "main"
-    "footer";
-  grid-template-rows: 100px 1fr 160px;
-}
-
-.mobile main {
-  width: 100%;
-}
-
-.mobile .header {
-  grid-area: header;
-}
-
-.mobile .main {
-  grid-area: main;
-}
-
-.mobile .footer {
-  grid-area: footer;
-}
 
 /* Desktop */
-.desktop .left-column {
+.desktop.grid {
+  display: grid;
+  grid-template-areas: "sidebar main";  
+  grid-template-columns: var(--desktop-sidebar-width) 1fr;
+  /* box-shadow: inset 0 0 0 5px rgba(200, 0, 0, .3); */
+}
+
+.desktop .sidebar {
+  grid-area: sidebar;
   position: fixed;
   width: var(--desktop-sidebar-width);
   left: 0;
@@ -41,65 +23,25 @@ body {
   display: grid;
   grid-template-areas:
     "header"
-    "nav"
+    "main"
     "footer";
-  grid-template-rows: 100px 1fr calc(170px + var(--trailer));
+  grid-template-rows: auto 1fr auto;
   /* show column borders */
-  /* box-shadow: inset 0 0 0 10px rgba(150, 0, 0, .3); */
+  /* box-shadow: inset 0 0 0 5px rgba(150, 0, 0, .3); */
 }
 
-.desktop .header {
-  justify-content: center;
+.desktop .sidebar header,
+.desktop .sidebar main,
+.desktop .sidebar footer {
+  /* box-shadow: inset 0 0 0 1px rgba(280, 0, 0, .3); */
 }
 
-.desktop .controls {
-  grid-area: controls;
-  /* align-items: center; */
-}
-
-.desktop .nav {
-  grid-area: nav;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: var(--trailer);
-}
-
-.desktop .footer {
-  grid-area: footer;
-}
 
 .desktop .main {
   grid-area: main;
   min-height: 100vh;
-  align-items: baseline;
-  justify-content: center;
-
-  padding: calc(var(--desktop-header-height) + var(--trailer) + 1.1rem)
-    var(--desktop-sidebar-width)
-    0;
   /* show column borders */
-  /* box-shadow: inset 0 0 0 10px rgba(255, 255, 150, 1); */
+  /* box-shadow: inset 0 0 0 1px rgba(255, 255, 150, 1); */
 }
-
-.desktop .right-column {
-  position: fixed;
-  width: var(--desktop-sidebar-width);
-  right: 0;
-  top: 0;
-  height: 100vh;
-  display: grid;
-  /* show column borders */
-  /* box-shadow: inset 0 0 0 10px rgba(0, 150, 0, .3); */
-}
-
-/* show grid borders */
-/* .desktop .header,
-.desktop .controls,
-.desktop .nav,
-.desktop .footer {
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1);
-}
- */
 
 
